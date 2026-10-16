@@ -13,7 +13,7 @@ export const site = {
 };
 
 export const hero = {
-  title: "Votre informatique, prise en charge par quelqu'un que vous connaissez.",
+  title: "Vous serez pris en charge par quelqu'un que vous connaissez.",
   lead:
     "EnimaTech s'occupe des postes, du courriel, des comptes Microsoft 365 et des noms de domaine des petites entreprises du Québec. Vous parlez toujours à la même personne, et vous savez ce qui a été fait.",
   primaryCta: "Nous écrire",
@@ -32,11 +32,11 @@ export const statusRows = [
 export const services = [
   {
     title: "Soutien à distance et par téléphone",
-    text: "Un poste qui ralentit, un logiciel qui refuse de s'ouvrir, une imprimante capricieuse : on règle la plupart des problèmes à distance, souvent le jour même.",
+    text: "Un site web ou un poste qui ralentit, un logiciel qui refuse de s'ouvrir : on règle la plupart des problèmes à distance, souvent le jour même.",
   },
   {
     title: "Microsoft 365",
-    text: "Création et départ d'employés, licences, Teams, SharePoint, OneDrive, authentification multifacteur. Votre locataire reste propre et documenté.",
+    text: "Création et départ d'employés, licences, Teams, SharePoint, OneDrive, authentification multifacteur. Votre Tenant Microsoft reste propre et documenté.",
   },
   {
     title: "Courriel et hébergement web",
