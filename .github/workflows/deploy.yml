@@ -35,7 +35,7 @@ jobs:
           cp -r .next/static deploy/app/.next/static
           if [ -d public ]; then cp -r public deploy/app/public; fi
           rm -f deploy/app/.env*
-          printf 'process.chdir(__dirname + "/app");\nrequire("./app/server.js");\n' > deploy/app.js
+          cp ops/app.js deploy/app.js
           tar -czf deploy.tar.gz -C deploy .
 
       - name: Préparer SSH

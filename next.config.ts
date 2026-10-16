@@ -1,12 +1,22 @@
-import type { NextConfig } from "next";
+   import type { NextConfig } from "next";
 
-const nextConfig: NextConfig = {
-  // Produit un serveur autonome dans .next/standalone : rien à installer sur PlanetHoster
-  output: "standalone",
-  // L'optimiseur d'images dépend d'un module natif propre à chaque système.
-  // Compilé sur Windows, il ne fonctionnerait pas sur le serveur Linux.
-  images: { unoptimized: true },
-  poweredByHeader: false,
-};
+   const nextConfig: NextConfig = {
+     output: "standalone",
+     images: { unoptimized: true },
+     poweredByHeader: false,
+     async headers() {
+       return [
+         {
+           source: "/:path*",
+           headers: [
+             { key: "X-Content-Type-Options", value: "nosniff" },
+             { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
+             { key: "X-Frame-Options", value: "DENY" },
+             { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=()" },
+           ],
+         },
+       ];
+     },
+   };
 
-export default nextConfig;
+   export default nextConfig;
