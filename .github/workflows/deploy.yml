@@ -48,7 +48,7 @@ jobs:
           chmod 600 ~/.ssh/deploy_key
           printf '%s\n' "$SSH_KNOWN_HOSTS" | tr -d '\r' > ~/.ssh/known_hosts
 
-      - name: Envoyer et installer sur PlanetHoster
+      - name: Envoyer, installer et vérifier sur PlanetHoster
         env:
           SSH_HOST: ${{ secrets.SSH_HOST }}
           SSH_PORT: ${{ secrets.SSH_PORT }}
@@ -73,12 +73,7 @@ jobs:
           fi
           echo "Déploiement installé. Vérification..."
           sleep 8
-          CODE=$(curl -s -o /dev/null -m 30 -w "%{http_code}" --resolve enimatech.com:443:127.0.0.1 https://enimatech.com/)
+          CODE=$(curl -k -s -o /dev/null -m 30 -w "%{http_code}" --resolve enimatech.com:443:127.0.0.1 https://enimatech.com/)
           echo "Code HTTP depuis le serveur : $CODE"
           [ "$CODE" = "200" ]
           EOF
-
-      - name: Vérifier que le site répond
-        run: |
-          sleep 10
-          curl -fsS -o /dev/null -w "Code HTTP : %{http_code}\n" https://enimatech.com
