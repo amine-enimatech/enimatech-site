@@ -71,7 +71,11 @@ jobs:
           else
             mkdir -p tmp && touch tmp/restart.txt
           fi
-          echo "Déploiement installé."
+          echo "Déploiement installé. Vérification..."
+          sleep 8
+          CODE=$(curl -s -o /dev/null -m 30 -w "%{http_code}" --resolve enimatech.com:443:127.0.0.1 https://enimatech.com/)
+          echo "Code HTTP depuis le serveur : $CODE"
+          [ "$CODE" = "200" ]
           EOF
 
       - name: Vérifier que le site répond
