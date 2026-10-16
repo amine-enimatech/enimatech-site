@@ -18,8 +18,11 @@ export function Header() {
       <div className="conteneur entete__rangee">
         {/* Pour utiliser votre logo : déposez-le dans public/logo.svg et remplacez
             le texte par <img src="/logo.svg" alt="EnimaTech" /> */}
-        <Link href="/" className="marque" aria-label={`${site.name}, accueil`}>
-          {site.name}
+        <Link href="/" className="marque">
+          <picture>
+            <source srcSet="/logo-blanc.png" media="(prefers-color-scheme: dark)" />
+            <img src="/logo-noir.png" alt="EnimaTech, accueil" width={99} height={48} />
+          </picture>
         </Link>
         <nav className="nav" aria-label="Navigation principale">
           {links.map((l) => (

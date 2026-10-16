@@ -13,7 +13,13 @@ export const metadata: Metadata = {
   title: { default: `${site.name} | ${site.tagline}`, template: `%s | ${site.name}` },
   description: hero.lead,
   openGraph: { type: "website", locale: "fr_CA", siteName: site.name },
-  icons: { icon: "/favicon.svg" },
+  icons: {
+    icon: [
+      { url: "/favicon-16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon.png", sizes: "192x192", type: "image/png" },
+    ],
+    apple: "/favicon.png",
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
