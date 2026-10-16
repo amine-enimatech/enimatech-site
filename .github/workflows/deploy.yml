@@ -26,6 +26,8 @@ jobs:
         run: npm ci
 
       - name: Compiler
+        env:
+          NEXT_PUBLIC_TURNSTILE_SITE_KEY: ${{ vars.NEXT_PUBLIC_TURNSTILE_SITE_KEY }}
         run: npm run build
 
       - name: Assembler le paquet
