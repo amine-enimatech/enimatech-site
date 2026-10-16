@@ -10,8 +10,7 @@ export default function ContactPage() {
       <div className="page__corps">
         <h1>Nous joindre</h1>
         <p className="page__intro">
-          Parlez-nous de votre entreprise et de ce qui vous occupe. Vous pouvez aussi écrire à{" "}
-          <a href={`mailto:${site.emails.info}`}>{site.emails.info}</a>.
+          Parlez-nous de votre entreprise et de ce qui vous occupe. Vous recevrez une réponse par courriel.
         </p>
         <ContactForm />
       </div>

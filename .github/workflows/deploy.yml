@@ -25,9 +25,18 @@ jobs:
       - name: Installer les dépendances
         run: npm ci
 
+      - name: Cache de compilation Next.js
+        uses: actions/cache@v5
+        with:
+          path: .next/cache
+          key: nextjs-${{ hashFiles('package-lock.json') }}-${{ hashFiles('app/**', 'components/**', 'lib/**', 'content/**') }}
+          restore-keys: |
+            nextjs-${{ hashFiles('package-lock.json') }}-
+
       - name: Compiler
         env:
           NEXT_PUBLIC_TURNSTILE_SITE_KEY: ${{ vars.NEXT_PUBLIC_TURNSTILE_SITE_KEY }}
+          NEXT_TELEMETRY_DISABLED: 1
         run: npm run build
 
       - name: Assembler le paquet
