@@ -9,7 +9,7 @@ export function Footer() {
           © {new Date().getFullYear()} {site.name}, {site.city}
         </p>
         <nav aria-label="Liens secondaires">
-          <a href={`mailto:${site.emails.info}`}>{site.emails.info}</a>
+          
           <Link href="/autorisation">Autorisation d'intervention</Link>
           <Link href="/confidentialite">Confidentialité</Link>
         </nav>

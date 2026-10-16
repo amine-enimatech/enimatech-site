@@ -78,7 +78,8 @@ export default function Home() {
             <div>
               <h3>Vous êtes client et quelque chose bloque</h3>
               <p>Écrivez au soutien. Un billet est ouvert et vous recevez un suivi.</p>
-              <a className="courriel" href={`mailto:${site.emails.support}`}>{site.emails.support}</a>
+              
+               
             </div>
             <div>
               <h3>Vous voulez discuter d'un besoin</h3>
